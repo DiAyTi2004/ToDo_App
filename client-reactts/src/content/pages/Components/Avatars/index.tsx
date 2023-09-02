@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
-import PageTitle from 'src/components/PageTitle';
-import PageTitleWrapper from 'src/components/PageTitleWrapper';
+import PageTitle from 'src/components/PageTitle/PageTitleIndex';
+import PageTitleWrapper from 'src/components/PageTitleWrapper/PageTitleWrapperIndex';
 import {
   Container,
   Grid,
@@ -9,7 +9,7 @@ import {
   CardContent,
   Divider
 } from '@mui/material';
-import Footer from 'src/components/Footer';
+import Footer from 'src/components/Footer/FooterIndex';
 import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import { deepOrange, deepPurple, green, pink } from '@mui/material/colors';

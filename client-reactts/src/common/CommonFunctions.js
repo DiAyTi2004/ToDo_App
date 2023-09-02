@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 
-import SuspenseLoader from 'src/components/SuspenseLoader';
+import SuspenseLoader from 'src/components/SuspenseLoader/SuspenseLoaderIndex';
 
 export const Loader = (Component) => (props) =>
 (

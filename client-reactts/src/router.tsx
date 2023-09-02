@@ -5,38 +5,38 @@ import { RouteObject } from 'react-router';
 import SidebarLayout from 'src/layouts/SidebarLayout';
 import BaseLayout from 'src/layouts/BaseLayout';
 
-import SuspenseLoader from 'src/components/SuspenseLoader';
+import SuspenseLoader from 'src/components/SuspenseLoader/SuspenseLoaderIndex';
 import CountryRouter from './views/Management/Country/CountryRouter';
 
 export const Loader = (Component: any) => (props: any) =>
 (
   <Suspense fallback={<SuspenseLoader />}>
-    <Component {...props} />
+    <Component {...props} /> 
   </Suspense>
 );
 
 // Pages
 
-const Overview = Loader(lazy(() => import('src/content/overview')));
+const Overview = Loader(lazy(() => import('src/content/overview/OverviewIndex')));
 
 // Dashboards
 
-const Crypto = Loader(lazy(() => import('src/content/dashboards/Crypto')));
+const Crypto = Loader(lazy(() => import('src/content/dashboards/Crypto/CryptoIndex')));
 
 // Applications
 
 const Messenger = Loader(
-  lazy(() => import('src/content/applications/Messenger'))
+  lazy(() => import('src/content/applications/Messenger/MessengerIndex'))
 );
 
 const Transactions = Loader(
-  lazy(() => import('src/content/applications/Transactions'))
+  lazy(() => import('src/content/applications/Transactions/TransactionsIndex'))
 );
 const UserProfile = Loader(
-  lazy(() => import('src/content/applications/Users/profile'))
+  lazy(() => import('src/content/applications/Users/profile/UsersIndex'))
 );
 const UserSettings = Loader(
-  lazy(() => import('src/content/applications/Users/settings'))
+  lazy(() => import('src/content/applications/Users/settings/SettingsIndex'))
 );
 
 // Components
