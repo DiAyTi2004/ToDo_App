@@ -1,4 +1,4 @@
-import Status404 from "./content/pages/Status/Status404";
+import Status404 from "./content/pages/Status/Status404/Status404Index";
 import CountryRouter, { CountryPage } from "./views/Management/Country/CountryRouter";
 
 const routes = [
