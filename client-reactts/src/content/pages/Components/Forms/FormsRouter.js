@@ -7,7 +7,7 @@ export const FormsPage = Loader(
 
 const FormsRouter = [
     {
-        path: "pages/Forms",
+        path: "Forms",
         element: <FormsPage />
     }
 ]

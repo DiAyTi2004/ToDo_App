@@ -7,7 +7,7 @@ export const ButtonsPage = Loader(
 
 const ButtonsRouter = [
     {
-        path: "pages/Buttons",
+        path: "Buttons",
         element: <ButtonsPage/>,
     },
 ];

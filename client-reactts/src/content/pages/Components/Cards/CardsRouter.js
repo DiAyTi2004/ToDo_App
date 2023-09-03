@@ -7,7 +7,7 @@ export const CardsPage = Loader(
 
 const CardsRouter = [
     {
-        path: "pages/cards",
+        path: "cards",
         element: <CardsPage />
     }
 ]

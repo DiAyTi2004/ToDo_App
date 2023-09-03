@@ -7,9 +7,9 @@ export const AccordionsPage = Loader(
 
 const AccordionsRouter = [
     {
-        path: "pages/accordions",
+        path: "accordions",
         element: <AccordionsPage />
     }
-]
+];
 
-export default AccordionsRouter
+export default AccordionsRouter;
