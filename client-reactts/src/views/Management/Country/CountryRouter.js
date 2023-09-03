@@ -1,4 +1,3 @@
-import ConstantList from "src/appConfig";
 import { Loader } from "src/common/CommonFunctions";
 import { lazy } from 'react';
 
@@ -8,7 +7,7 @@ export const CountryPage = Loader(
 
 const CountryRouter = [
     {
-        path: "management/country",
+        path: "country",
         element: <CountryPage/>,
     },
 ];

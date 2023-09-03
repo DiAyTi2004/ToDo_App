@@ -1,15 +1,16 @@
-import Status404 from "./content/pages/Status/Status404/Status404Index";
-import CountryRouter, { CountryPage } from "./views/Management/Country/CountryRouter";
+//layout
+import ManagementRouter from 'src/views/Management/ManagementRouter';
+import { Status404Page } from './content/pages/Status/Status404/Status404Router';
+import BaseLayoutRouter from './layouts/BaseLayout/BaseLayoutRouter';
+import DashboardsRouter from './content/dashboards/DashboardsRouter';
 
 const routes = [
-    {
-        path: '/',
-        element: <CountryPage />
-    },
-    ...CountryRouter,
+    ...BaseLayoutRouter,
+    ...DashboardsRouter,
+    ...ManagementRouter,
     {
         path: '*',
-        element: <Status404 />
+        element: <Status404Page />
     },
 ];
 

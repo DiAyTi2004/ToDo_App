@@ -33,7 +33,7 @@ const Transactions = Loader(
   lazy(() => import('src/content/applications/Transactions/TransactionsIndex'))
 );
 const UserProfile = Loader(
-  lazy(() => import('src/content/applications/Users/profile/UsersIndex'))
+  lazy(() => import('src/content/applications/Users/profile/ProfileIndex'))
 );
 const UserSettings = Loader(
   lazy(() => import('src/content/applications/Users/settings/SettingsIndex'))
