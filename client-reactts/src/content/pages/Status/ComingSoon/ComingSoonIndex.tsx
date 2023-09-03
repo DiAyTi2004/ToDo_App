@@ -77,9 +77,13 @@ function StatusComingSoon() {
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
   useEffect(() => {
-    setTimeout(() => {
+    const timeOut = setTimeout(() => {
       setTimeLeft(calculateTimeLeft());
     }, 1000);
+
+    return function () {
+      clearTimeout(timeOut);
+    }
   });
 
   const timerComponents = [];

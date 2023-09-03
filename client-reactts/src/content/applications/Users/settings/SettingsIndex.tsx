@@ -58,8 +58,8 @@ function ManagementUserSettings() {
               textColor="primary"
               indicatorColor="primary"
             >
-              {tabs.map((tab) => (
-                <Tab key={tab.value} label={tab.label} value={tab.value} />
+              {tabs.map((tab, index) => (
+                <Tab key={index} label={tab.label} value={tab.value} />
               ))}
             </TabsWrapper>
           </Grid>
