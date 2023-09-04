@@ -7,7 +7,7 @@ export const ModalsPage = Loader(
 
 const ModalsRouter = [
     {
-        path: "Modals",
+        path: "modals",
         element: <ModalsPage />
     }
 ]

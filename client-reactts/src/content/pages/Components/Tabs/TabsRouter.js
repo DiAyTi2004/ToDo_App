@@ -7,7 +7,7 @@ export const TabsPage = Loader(
 
 const TabsRouter = [
     {
-        path: "Tabs",
+        path: "tabs",
         element: <TabsPage />
     }
 ]
