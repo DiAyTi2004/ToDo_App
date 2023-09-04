@@ -12,4 +12,4 @@ const TabsRouter = [
     }
 ]
 
-export default TabsRouter
+export default TabsRouter;

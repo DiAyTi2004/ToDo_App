@@ -12,4 +12,4 @@ const TooltipsRouter = [
     }
 ]
 
-export default TooltipsRouter
+export default TooltipsRouter;

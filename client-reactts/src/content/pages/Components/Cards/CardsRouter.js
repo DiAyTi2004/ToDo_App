@@ -12,4 +12,4 @@ const CardsRouter = [
     }
 ]
 
-export default CardsRouter
+export default CardsRouter;

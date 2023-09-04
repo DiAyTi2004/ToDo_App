@@ -12,4 +12,4 @@ const FormsRouter = [
     }
 ]
 
-export default FormsRouter
+export default FormsRouter;

@@ -12,4 +12,4 @@ const ModalsRouter = [
     }
 ]
 
-export default ModalsRouter
+export default ModalsRouter;
