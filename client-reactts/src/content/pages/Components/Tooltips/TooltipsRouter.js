@@ -7,9 +7,9 @@ export const TooltipsPage = Loader(
 
 const TooltipsRouter = [
     {
-        path: "Tooltips",
-        element: <tooltipsPage />
+        path: "tooltips",
+        element: <TooltipsPage />
     }
 ]
 
-export default TooltipsRouter
+export default TooltipsRouter;

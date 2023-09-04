@@ -7,7 +7,7 @@ export const BadgesPage = Loader(
 
 const BadgesRouter = [
     {
-        path: "Badges",
+        path: "badges",
         element: <BadgesPage/>,
     },
 ];

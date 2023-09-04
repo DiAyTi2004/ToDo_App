@@ -7,7 +7,7 @@ export const AvatarsPage = Loader(
 
 const AvatarsRouter = [
     {
-        path: "Avatars",
+        path: "avatars",
         element: <AvatarsPage/>,
     },
 ];

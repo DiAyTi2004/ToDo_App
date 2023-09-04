@@ -1,4 +1,4 @@
-import { Loader } from 'src/router';
+import { Loader } from 'src/common/CommonFunctions';
 import { lazy } from 'react';
 
 const SettingsPage = Loader(
