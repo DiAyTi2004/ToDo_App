@@ -16,7 +16,7 @@ import CheckBoxTwoToneIcon from '@mui/icons-material/CheckBoxTwoTone';
 import ChromeReaderModeTwoToneIcon from '@mui/icons-material/ChromeReaderModeTwoTone';
 import WorkspacePremiumTwoToneIcon from '@mui/icons-material/WorkspacePremiumTwoTone';
 import CameraFrontTwoToneIcon from '@mui/icons-material/CameraFrontTwoTone';
-
+import PublicIcon from '@mui/icons-material/Public';
 
 const navigations = [
     {
@@ -43,6 +43,11 @@ const navigations = [
                 name: 'Transactions List',
                 path: 'transactions',
                 Icon: TableChartTwoToneIcon,
+            },
+            {
+                name: 'Country',
+                path: 'country',
+                Icon: PublicIcon,
             },
         ],
     },
