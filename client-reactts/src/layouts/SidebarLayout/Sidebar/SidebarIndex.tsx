@@ -1,7 +1,4 @@
 import { useContext } from 'react';
-import Scrollbar from 'src/components/Scrollbar/Scrollbarlndex';
-import { SidebarContext } from 'src/contexts/SidebarContext';
-
 import {
   Box,
   Drawer,
@@ -12,9 +9,14 @@ import {
   Button,
   lighten,
   darken,
+  IconButton,
   Tooltip
 } from '@mui/material';
+import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
+import CloseTwoToneIcon from '@mui/icons-material/CloseTwoTone';
 
+import Scrollbar from 'src/components/Scrollbar/Scrollbarlndex';
+import { SidebarContext } from 'src/contexts/SidebarContext';
 import SidebarMenu from './SidebarMenu/MenuList';
 import Logo from 'src/components/LogoSign/LogoSignIndex';
 
@@ -32,7 +34,11 @@ const SidebarWrapper = styled(Box)(
 
 function Sidebar() {
   const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
-  const closeSidebar = () => toggleSidebar();
+  const closeSidebar = () => {
+    toggleSidebar();
+    console.log(sidebarToggle);
+    
+  }
   const theme = useTheme();
 
   return (
@@ -50,12 +56,14 @@ function Sidebar() {
             theme.palette.mode === 'dark'
               ? alpha(lighten(theme.header.background, 0.1), 0.5)
               : darken(theme.colors.alpha.black[100], 0.5),
-          boxShadow:
-            theme.palette.mode === 'dark' ? theme.sidebar.boxShadow : 'none'
+          boxShadow: theme.palette.mode === 'dark' ? theme.sidebar.boxShadow : 'none',
         }}
       >
         <Scrollbar>
-          <Box mt={3}>
+          <Box mt={3}
+            position={'relative'}
+            display={'flex'}
+          >
             <Box
               mx={2}
               sx={{
@@ -64,6 +72,28 @@ function Sidebar() {
             >
               <Logo />
             </Box>
+            <Box
+              component="span"
+              mx={2}
+              sx={{
+                position: 'absolute',
+                top: 5,
+                right: 10,
+              }}
+            >
+              <Tooltip arrow title="Toggke Menu" >
+                <IconButton color="primary" onClick={toggleSidebar}>
+                  <MenuTwoToneIcon />
+                  {/* {!sidebarToggle ? (
+                    <MenuTwoToneIcon fontSize="medium" />
+                  ) : (
+                    <CloseTwoToneIcon fontSize="medium" />
+                  )} */}
+                </IconButton>
+                {/* <MenuTwoToneIcon /> */}
+              </Tooltip>
+            </Box>
+
           </Box>
           <Divider
             sx={{
