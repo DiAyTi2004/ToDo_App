@@ -3,21 +3,26 @@ import { Grid, Paper, Avatar, TextField, Button, Typography, Link, Checkbox, For
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined'; // Import icons from '@mui/icons-material'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { UserModel } from 'src/models/UserModel';
 
 function LoginPage({ handleChange }: any) {
     const paperStyle = { padding: 20, height: '73vh', width: 300, margin: '0 auto' };
     const avatarStyle = { backgroundColor: '#1bbd7e' };
     const btnstyle = { margin: '8px 0' };
+
     const initialValues = {
         username: '',
         password: '',
         remember: false,
     };
+    
     const validationSchema = Yup.object().shape({
-        username: Yup.string().email('please enter a valid email').required('Required'),
+        // username: Yup.string().email('please enter a valid email').required('Required'),
+        username: Yup.string().required("This field is required").nullable(),
         password: Yup.string().required('Required'),
     });
-    const onSubmit = (values, props) => {
+
+    const onSubmit = (values: UserModel, props: any) => {
         console.log(values);
         setTimeout(() => {
             props.resetForm();
@@ -36,7 +41,11 @@ function LoginPage({ handleChange }: any) {
                         <h2>Sign In</h2>
                     </div>
                 </Grid>
-                <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
+                <Formik
+                    initialValues={initialValues}
+                    onSubmit={onSubmit}
+                    validationSchema={validationSchema}
+                >
                     {(props) => (
                         <Form>
                             <Grid container spacing={2}>
