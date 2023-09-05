@@ -1,31 +1,8 @@
 package com.diaytiproject.todoapp.dto;
 
-import com.diaytiproject.todoapp.entity.User;
-
-import java.util.UUID;
-
-public class UserDto {
-    private UUID id;
+public class UserDTO {
     private String username;
     private String password;
-
-    public UserDto() {
-
-    }
-
-    public UserDto(User entity) {
-        this.id = entity.getId();
-        this.username = entity.getUsername();
-        this.password = entity.getPassword();
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;

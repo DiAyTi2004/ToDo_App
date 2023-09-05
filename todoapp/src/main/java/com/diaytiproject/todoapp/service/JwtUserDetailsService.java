@@ -1,8 +1,8 @@
 package com.diaytiproject.todoapp.service;
 
-import com.diaytiproject.todoapp.dto.UserDto;
-import com.diaytiproject.todoapp.entity.User;
-import com.diaytiproject.todoapp.repository.UserRepository;
+import com.diaytiproject.todoapp.dto.UserDTO;
+import com.diaytiproject.todoapp.entity.DAOUser;
+import com.diaytiproject.todoapp.repository.UserDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,26 +14,27 @@ import java.util.ArrayList;
 
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
-    @Autowired
-    private UserRepository userRepository;
-    @Autowired
-    private PasswordEncoder bcryptEncoder;
 
-    @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	@Autowired
+	private UserDao userDao;
 
-        User user = userRepository.findByUsername(username);
-        if (user == null) {
-            throw new UsernameNotFoundException("User not found with username: " + username);
-        }
-        return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
-                new ArrayList<>());
-    }
+	@Autowired
+	private PasswordEncoder bcryptEncoder;
 
-    public User save(UserDto user) {
-        User newUser = new User();
-        newUser.setUsername(user.getUsername());
-        newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
-        return userRepository.save(newUser);
-    }
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		DAOUser user = userDao.findByUsername(username);
+		if (user == null) {
+			throw new UsernameNotFoundException("User not found with username: " + username);
+		}
+		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(),
+				new ArrayList<>());
+	}
+
+	public DAOUser save(UserDTO user) {
+		DAOUser newUser = new DAOUser();
+		newUser.setUsername(user.getUsername());
+		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
+		return userDao.save(newUser);
+	}
 }
