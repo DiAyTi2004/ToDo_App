@@ -1,8 +1,8 @@
 package com.diaytiproject.todoapp.service;
 
-import com.diaytiproject.todoapp.dto.UserDTO;
-import com.diaytiproject.todoapp.entity.DAOUser;
-import com.diaytiproject.todoapp.repository.UserDao;
+import com.diaytiproject.todoapp.dto.UserAppDTO;
+import com.diaytiproject.todoapp.entity.UserApp;
+import com.diaytiproject.todoapp.repository.UserAppRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,14 +16,14 @@ import java.util.ArrayList;
 public class JwtUserDetailsService implements UserDetailsService {
 
 	@Autowired
-	private UserDao userDao;
+	private UserAppRepository userAppRepository;
 
 	@Autowired
 	private PasswordEncoder bcryptEncoder;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		DAOUser user = userDao.findByUsername(username);
+		UserApp user = userAppRepository.findByUsername(username);
 		if (user == null) {
 			throw new UsernameNotFoundException("User not found with username: " + username);
 		}
@@ -31,10 +31,10 @@ public class JwtUserDetailsService implements UserDetailsService {
 				new ArrayList<>());
 	}
 
-	public DAOUser save(UserDTO user) {
-		DAOUser newUser = new DAOUser();
+	public UserApp save(UserAppDTO user) {
+		UserApp newUser = new UserApp();
 		newUser.setUsername(user.getUsername());
 		newUser.setPassword(bcryptEncoder.encode(user.getPassword()));
-		return userDao.save(newUser);
+		return userAppRepository.save(newUser);
 	}
 }
