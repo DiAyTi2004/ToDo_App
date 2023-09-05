@@ -17,7 +17,6 @@ import { Typography, Button } from '@mui/material';
 import AddTwoToneIcon from '@mui/icons-material/AddTwoTone';
 
 import PageTitleWrapper from 'src/components/PageTitleWrapper/PageTitleWrapperIndex';
-import { Country } from 'src/models/country';
 import { useStore } from 'src/stores';
 import Footer from 'src/components/Footer/FooterIndex';
 

@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { UserModel } from 'src/models/UserModel';
 
 function LoginPage({ handleChange }: any) {
-    const paperStyle = { padding: 20, height: '73vh', width: 300, margin: '0 auto' };
+    const paperStyle = { padding: 20, width: 300, margin: '0 auto' };
     const avatarStyle = { backgroundColor: '#1bbd7e' };
     const btnstyle = { margin: '8px 0' };
 
@@ -15,7 +15,7 @@ function LoginPage({ handleChange }: any) {
         password: '',
         remember: false,
     };
-    
+
     const validationSchema = Yup.object().shape({
         // username: Yup.string().email('please enter a valid email').required('Required'),
         username: Yup.string().required("This field is required").nullable(),
@@ -96,10 +96,10 @@ function LoginPage({ handleChange }: any) {
                         </Form>
                     )}
                 </Formik>
-                <Typography>
+                <Typography className="flex-center">
                     <Link href="#">Forgot password?</Link>
                 </Typography>
-                <Typography>
+                <Typography className="flex-center">
                     Do you have an account?{' '}
                     <Link href="#" onClick={() => handleChange('event', 1)}>
                         Sign Up
