@@ -11,32 +11,65 @@ const Signup = () => {
     return (
         <Grid>
             <Paper style={paperStyle}>
-                <Grid className='flex-center'>
-                    <Avatar style={avatarStyle}>
-                        <AddCircleOutlineOutlinedIcon />
-                    </Avatar>
-                    <Typography variant='h2' style={headerStyle}>Sign Up</Typography>
-                    <Typography variant='caption' gutterBottom>Please fill this form to create an account !</Typography>
+                <Grid container spacing={2} className='flex-center'>
+                    <Grid item xs={12} className='flex-center'>
+                        <Avatar style={avatarStyle} className='mr-2'>
+                            <AddCircleOutlineOutlinedIcon />
+                        </Avatar>
+                        <div>
+                            <Typography style={headerStyle}><h2>Sign Up</h2> </Typography>
+                        </div>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Typography variant='caption' gutterBottom>Please fill this form to create an account !</Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <form>
+                            <Grid container spacing={2}>
+                                <Grid item xs={12}>
+                                    <TextField fullWidth label='Name' placeholder="Enter your name" />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField fullWidth label='Email' placeholder="Enter your email" />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <FormControl component="fieldset" style={marginTop}>
+                                        <FormLabel component="legend">Gender</FormLabel>
+                                        <RadioGroup aria-label="gender" name="gender" style={{ display: 'initial' }}>
+                                            <FormControlLabel value="female" control={<Radio />} label="Female" />
+                                            <FormControlLabel value="male" control={<Radio />} label="Male" />
+                                        </RadioGroup>
+                                    </FormControl>
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField fullWidth label='Phone Number' placeholder="Enter your phone number" />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField fullWidth label='Password' placeholder="Enter your password" />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <TextField fullWidth label='Confirm Password' placeholder="Confirm your password" />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <FormControlLabel
+                                        control={<Checkbox name="checkedA" />}
+                                        label="I accept the terms and conditions."
+                                    />
+                                </Grid>
+                                <Grid item xs={12}>
+                                    <Button
+                                        type='submit'
+                                        variant='contained'
+                                        color='primary'
+                                        fullWidth
+
+                                    >Sign up
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </form>
+                    </Grid>
                 </Grid>
-                <form>
-                    <TextField fullWidth label='Name' placeholder="Enter your name" />
-                    <TextField fullWidth label='Email' placeholder="Enter your email" />
-                    <FormControl component="fieldset" style={marginTop}>
-                        <FormLabel component="legend">Gender</FormLabel>
-                        <RadioGroup aria-label="gender" name="gender" style={{ display: 'initial' }}>
-                            <FormControlLabel value="female" control={<Radio />} label="Female" />
-                            <FormControlLabel value="male" control={<Radio />} label="Male" />
-                        </RadioGroup>
-                    </FormControl>
-                    <TextField fullWidth label='Phone Number' placeholder="Enter your phone number" />
-                    <TextField fullWidth label='Password' placeholder="Enter your password" />
-                    <TextField fullWidth label='Confirm Password' placeholder="Confirm your password" />
-                    <FormControlLabel
-                        control={<Checkbox name="checkedA" />}
-                        label="I accept the terms and conditions."
-                    />
-                    <Button type='submit' variant='contained' color='primary'>Sign up</Button>
-                </form>
             </Paper>
         </Grid>
     );

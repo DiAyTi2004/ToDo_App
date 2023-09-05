@@ -1,3 +1,10 @@
+html {
+    padding: unset;
+    margin: unset;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
 @for $i from 0 through 20 {
     $value: $i * 4px;
 

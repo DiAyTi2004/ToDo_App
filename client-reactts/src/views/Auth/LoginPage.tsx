@@ -29,10 +29,12 @@ function LoginPage({ handleChange }: any) {
         <Grid>
             <Paper style={paperStyle}>
                 <Grid className='flex-center'>
-                    <Avatar style={avatarStyle}>
+                    <Avatar style={avatarStyle} className='mr-2'>
                         <LockOutlinedIcon />
                     </Avatar>
-                    <h2>Sign In</h2>
+                    <div>
+                        <h2>Sign In</h2>
+                    </div>
                 </Grid>
                 <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
                     {(props) => (
