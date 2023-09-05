@@ -1,4 +1,4 @@
-package com.javainuse.model;
+package com.diaytiproject.todoapp.dto;
 
 import java.io.Serializable;
 
