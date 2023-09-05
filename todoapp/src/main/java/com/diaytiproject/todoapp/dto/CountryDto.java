@@ -1,8 +1,8 @@
-package com.fullstack.serverspringboot.dto;
+package com.diaytiproject.todoapp.dto;
 
 import java.util.UUID;
 
-import com.fullstack.serverspringboot.entity.Country;
+import com.diaytiproject.todoapp.entity.Country;
 
 public class CountryDto {
 	private UUID id;

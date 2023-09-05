@@ -1,12 +1,12 @@
-package com.fullstack.serverspringboot.service;
+package com.diaytiproject.todoapp.service;
 
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.domain.Page;
 
-import com.fullstack.serverspringboot.dto.EthnicsDto;
-import com.fullstack.serverspringboot.dto.SearchObject;
+import com.diaytiproject.todoapp.dto.EthnicsDto;
+import com.diaytiproject.todoapp.dto.SearchObject;
 
 public interface EthnicsService {
 	public EthnicsDto getEthnicsById(UUID ethnicsId);

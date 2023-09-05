@@ -1,4 +1,4 @@
-package com.fullstack.serverspringboot.service.impl;
+package com.diaytiproject.todoapp.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,11 +14,11 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.fullstack.serverspringboot.dto.EthnicsDto;
-import com.fullstack.serverspringboot.dto.SearchObject;
-import com.fullstack.serverspringboot.entity.Ethnics;
-import com.fullstack.serverspringboot.repository.EthnicsRepository;
-import com.fullstack.serverspringboot.service.EthnicsService;
+import com.diaytiproject.todoapp.dto.EthnicsDto;
+import com.diaytiproject.todoapp.dto.SearchObject;
+import com.diaytiproject.todoapp.entity.Ethnics;
+import com.diaytiproject.todoapp.repository.EthnicsRepository;
+import com.diaytiproject.todoapp.service.EthnicsService;
 
 @Service
 public class EthnicsServiceImpl implements EthnicsService {

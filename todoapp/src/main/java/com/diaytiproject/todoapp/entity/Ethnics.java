@@ -1,4 +1,4 @@
-package com.fullstack.serverspringboot.entity;
+package com.diaytiproject.todoapp.entity;
 
 import java.util.UUID;
 

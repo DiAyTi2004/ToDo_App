@@ -1,4 +1,4 @@
-package com.fullstack.serverspringboot.repository;
+package com.diaytiproject.todoapp.repository;
 
 import java.util.List;
 import java.util.UUID;
@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.fullstack.serverspringboot.entity.Ethnics;
+import com.diaytiproject.todoapp.entity.Ethnics;
 
 @Repository
 public interface EthnicsRepository extends JpaRepository<Ethnics, UUID>{

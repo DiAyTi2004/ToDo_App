@@ -1,4 +1,4 @@
-package com.fullstack.serverspringboot.dto;
+package com.diaytiproject.todoapp.dto;
 
 public class SearchObject {
 	private int pageSize;

@@ -1,4 +1,4 @@
-package com.fullstack.serverspringboot.service.impl;
+package com.diaytiproject.todoapp.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,13 +14,12 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
-import com.fullstack.serverspringboot.dto.CountryDto;
-import com.fullstack.serverspringboot.dto.SearchObject;
-import com.fullstack.serverspringboot.entity.Country;
-import com.fullstack.serverspringboot.repository.CountryRepository;
-import com.fullstack.serverspringboot.service.CountryService;
+import com.diaytiproject.todoapp.dto.CountryDto;
+import com.diaytiproject.todoapp.dto.SearchObject;
+import com.diaytiproject.todoapp.entity.Country;
+import com.diaytiproject.todoapp.repository.CountryRepository;
+import com.diaytiproject.todoapp.service.CountryService;
 
 @Service
 public class CountryServiceImpl implements CountryService {

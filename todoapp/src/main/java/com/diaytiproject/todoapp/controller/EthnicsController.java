@@ -1,4 +1,4 @@
-package com.fullstack.serverspringboot.controller;
+package com.diaytiproject.todoapp.controller;
 
 import java.util.List;
 import java.util.UUID;
@@ -16,11 +16,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fullstack.serverspringboot.dto.CountryDto;
-import com.fullstack.serverspringboot.dto.EthnicsDto;
-import com.fullstack.serverspringboot.dto.SearchObject;
-import com.fullstack.serverspringboot.service.CountryService;
-import com.fullstack.serverspringboot.service.EthnicsService;
+import com.diaytiproject.todoapp.dto.EthnicsDto;
+import com.diaytiproject.todoapp.dto.SearchObject;
+import com.diaytiproject.todoapp.service.EthnicsService;
 
 @RestController
 @RequestMapping("/api/ethnics")

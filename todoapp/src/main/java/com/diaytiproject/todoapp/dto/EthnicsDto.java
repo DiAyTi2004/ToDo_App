@@ -1,8 +1,8 @@
-package com.fullstack.serverspringboot.dto;
+package com.diaytiproject.todoapp.dto;
 
 import java.util.UUID;
 
-import com.fullstack.serverspringboot.entity.Ethnics;
+import com.diaytiproject.todoapp.entity.Ethnics;
 
 public class EthnicsDto {
 	private UUID id;
