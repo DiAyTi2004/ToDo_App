@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { Box, alpha, lighten, useTheme } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ const SidebarLayout: FC<SidebarLayoutProps> = () => {
   const theme = useTheme();
 
   return (
-    <>
+    <React.Fragment>
       <Box
         sx={{
           flex: 1,
@@ -60,7 +60,7 @@ const SidebarLayout: FC<SidebarLayoutProps> = () => {
           </Box>
         </Box>
       </Box>
-    </>
+    </React.Fragment>
   );
 };
 

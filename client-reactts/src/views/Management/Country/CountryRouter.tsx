@@ -8,8 +8,8 @@ export const CountryPage = Loader(
 const CountryRouter = [
     {
         path: "country",
-        element: <CountryPage/>,
-    },
+        element: <CountryPage />
+    }
 ];
 
 export default CountryRouter;
