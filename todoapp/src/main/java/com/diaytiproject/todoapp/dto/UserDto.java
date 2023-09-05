@@ -1,24 +1,23 @@
-package com.diaytiproject.todoapp.entity;
+package com.diaytiproject.todoapp.dto;
 
-import org.hibernate.annotations.Type;
+import com.diaytiproject.todoapp.entity.User;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.UUID;
 
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Type(type = "uuid-char")
-    @Column(name = "id", unique = true, nullable = false)
+public class UserDto {
     private UUID id;
-
-    @Column
     private String username;
-    @Column
     private String password;
+
+    public UserDto() {
+
+    }
+
+    public UserDto(User entity) {
+        this.id = entity.getId();
+        this.username = entity.getUsername();
+        this.password = entity.getPassword();
+    }
 
     public UUID getId() {
         return id;
