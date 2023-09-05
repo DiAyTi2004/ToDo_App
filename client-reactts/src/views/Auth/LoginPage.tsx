@@ -6,9 +6,12 @@ import * as Yup from 'yup';
 import { UserModel } from 'src/models/UserModel';
 
 function LoginPage({ handleChange }: any) {
-    const paperStyle = { padding: 20, width: 300, margin: '0 auto' };
+    const paperStyle = { padding: 20, margin: 'auto 0px', borderRadius: '0px 0px 15px 15px' };
+    const headerStyle = { margin: 0 };
     const avatarStyle = { backgroundColor: '#1bbd7e' };
     const btnstyle = { margin: '8px 0' };
+    // const backgroundStyle = { backgroundImage: `url('https://marketplace.canva.com/EAD2962NKnQ/2/0/400w/canva-rainbow-gradient-pink-and-purple-virtual-background-LrNk7fAXxw8.jpg')` };
+    // const backgroundStyle = {background: 'https://marketplace.canva.com/EAD2962NKnQ/2/0/400w/canva-rainbow-gradient-pink-and-purple-virtual-background-LrNk7fAXxw8.jpg' };
 
     const initialValues = {
         username: '',
@@ -38,7 +41,9 @@ function LoginPage({ handleChange }: any) {
                         <LockOutlinedIcon />
                     </Avatar>
                     <div>
-                        <h2>Sign In</h2>
+                        <Typography style={headerStyle}>
+                            <h2>Sign In</h2>
+                        </Typography>
                     </div>
                 </Grid>
                 <Formik
