@@ -1,6 +1,6 @@
 package com.diaytiproject.todoapp.dto;
 
-public class UserDTO {
+public class UserAppDTO {
     private String username;
     private String password;
 

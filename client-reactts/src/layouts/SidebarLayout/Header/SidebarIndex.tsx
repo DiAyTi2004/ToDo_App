@@ -73,7 +73,7 @@ function Header() {
       <Box display="flex" alignItems="center">
         <HeaderButtons />
         <HeaderUserbox />
-        <Box
+        {/* <Box
           component="span"
           sx={{
             ml: 2,
@@ -89,7 +89,7 @@ function Header() {
               )}
             </IconButton>
           </Tooltip>
-        </Box>
+        </Box> */}
       </Box>
     </HeaderWrapper>
   );

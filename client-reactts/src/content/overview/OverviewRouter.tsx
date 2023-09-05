@@ -6,12 +6,8 @@ export const Overview = Loader(lazy(() => import('src/content/overview/OverviewI
 
 const OverviewRouter = [
     {
-        path: "/",
-        element: <Overview />,
-    },
-    {
         path: 'overview',
-        element: <Navigate to="/" replace />
+        element: <Overview />,
     },
 ];
 
