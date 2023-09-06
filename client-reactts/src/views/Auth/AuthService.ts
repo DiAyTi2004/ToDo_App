@@ -9,7 +9,7 @@ export function registerUser(user: UserModel) {
     return axios.post(url, user);
 }
 
-export function authenticaterUser(user: UserModel) {
+export function authenticateUser(user: UserModel) {
     const url = API_PATH + '/authenticate';
     return axios.post(url, user);
 }

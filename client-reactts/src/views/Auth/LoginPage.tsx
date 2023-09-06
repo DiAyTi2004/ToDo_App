@@ -4,6 +4,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined'; // Import icons
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { UserModel } from 'src/models/UserModel';
+import { useStore } from 'src/stores';
 
 function LoginPage({ handleChange }: any) {
     const paperStyle = { padding: 20, width: 300, margin: '0 auto' };
@@ -22,8 +23,12 @@ function LoginPage({ handleChange }: any) {
         password: Yup.string().required('Required'),
     });
 
+    const { authStore } = useStore();
+    const { authenticateUser } = authStore;
+
     const onSubmit = (values: UserModel, props: any) => {
         console.log(values);
+        authenticateUser(values);
         setTimeout(() => {
             props.resetForm();
             props.setSubmitting(false);

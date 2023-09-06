@@ -17,8 +17,8 @@ function App() {
           {/* <CssBaseline /> */}
           {content}
           <ToastContainer
-            position="top-left"
-            autoClose={3000}
+            position="top-right"
+            autoClose={2000}
             hideProgressBar={false}
             newestOnTop={false}
             closeOnClick
@@ -26,7 +26,7 @@ function App() {
             pauseOnFocusLoss
             draggable
             pauseOnHover
-            theme="light"
+            theme="colored"
           />
         </>
       </LocalizationProvider>
