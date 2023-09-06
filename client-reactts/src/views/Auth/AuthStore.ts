@@ -14,22 +14,29 @@ export default class AuthStore {
 
     authenticateUser = async (user: UserModel) => {
         try {
-            // debugger
-            const data = await authenticateUser(user);
-            console.log("checking data", data);
-            // authenticateUser(user).then((response) => {
-            //     if (response.data) {
-            //         this.setUser({ user: response.data })
-            //         return response.data;
-            //     }
-            // })
-            toast.error("Login success");
+            const { data } = await authenticateUser(user);
+            this.setSession(data?.token);
+            toast.success("Login successfully!");
+            return data;
+        }
+        catch (error) {
+            toast.error("The username or password is incorrect");
+            throw new Error(error);
+        }
+    }
+
+    registerUser = async (user: UserModel) => {
+        try {
+            const { data } = await registerUser(user);
+            toast.success("Register successfully! Please login again!");
+            return data;
         }
         catch (error) {
             console.error(error);
-            toast.error("Login fail");
+            toast.error("Registration isn't success");
+            throw new Error(error);
         }
-    };
+    }
 
     logout = () => {
         this.setSession(null);

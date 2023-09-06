@@ -6,13 +6,16 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import LoginPage from "./LoginPage";
 import Signup from "./SignUpPage";
+import { useNavigate } from "react-router";
 
 // Import your Login and Signup components here
 
 function AuthIndex() {
   const [value, setValue] = useState(0);
 
-  const handleChange = (event, newValue) => {
+  const navigate = useNavigate();
+
+  const handleChangeTab = (event: any, newValue: any) => {
     setValue(newValue);
   };
 
@@ -41,27 +44,36 @@ function AuthIndex() {
   }
 
   return (
-    <div style={{width: "100vw", height: "100vh", paddingTop: "30px", padding: "0px", background: `url('https://marketplace.canva.com/EAD2962NKnQ/2/0/400w/canva-rainbow-gradient-pink-and-purple-virtual-background-LrNk7fAXxw8.jpg')`, backgroundRepeat: "no-repeat", backgroundSize: "100% 100%"}}>
+    <div
+      className="flex-center"
+      style={{ width: "100vw", height: "100vh", paddingTop: "30px", padding: "0px", background: `url('https://marketplace.canva.com/EAD2962NKnQ/2/0/400w/canva-rainbow-gradient-pink-and-purple-virtual-background-LrNk7fAXxw8.jpg')`, backgroundRepeat: "no-repeat", backgroundSize: "100% 100%" }}
+    >
       <Paper elevation={20} style={paperStyle}>
         <Tabs
           value={value}
           indicatorColor="primary"
           textColor="primary"
           variant="fullWidth"
-          onChange={handleChange}
+          onChange={handleChangeTab}
           aria-label="disabled tabs example"
         >
-          <Tab label="Sign In" style={{borderRadius: '15px 0px 0px 0px'}}/>
+          <Tab label="Sign In" style={{ borderRadius: '15px 0px 0px 0px' }} />
 
           <Tab label="Sign Up" />
         </Tabs>
 
         <TabPanel value={value} index={0}>
-          <LoginPage />
+          <LoginPage
+            navigate={navigate}
+            handleChangeTab={handleChangeTab}
+          />
         </TabPanel>
 
         <TabPanel value={value} index={1}>
-          <Signup />
+          <Signup
+            navigate={navigate}
+            handleChangeTab={handleChangeTab}
+          />
         </TabPanel>
       </Paper>
     </div>

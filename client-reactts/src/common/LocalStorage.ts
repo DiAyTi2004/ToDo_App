@@ -1,20 +1,20 @@
 class LocalStorage {
     ls = window.localStorage
 
-    removeItem = key => this.ls.removeItem(key);
+    removeItem = (key:any) => this.ls.removeItem(key);
 
-    setItem(key, value) {
-        value = JSON.stringify(value)
-        this.ls.setItem(key, value)
-        return true
+    setItem(key:any, value:any) {
+        value = JSON.stringify(value);
+        this.ls.setItem(key, value);
+        return true;
     }
 
-    getItem(key) {
+    getItem(key:any) {
         try {
-            let value = this.ls.getItem(key)
-            return JSON.parse(value)
+            let value = this.ls.getItem(key);
+            return JSON.parse(value);
         } catch (e) {
-            return null
+            return null;
         }
     }
 

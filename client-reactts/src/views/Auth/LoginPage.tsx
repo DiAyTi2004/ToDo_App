@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { UserModel } from 'src/models/UserModel';
 import { useStore } from 'src/stores';
 
-function LoginPage({ handleChange }: any) {
+function LoginPage({ navigate, handleChangeTab }: any) {
     const paperStyle = { padding: 20, margin: 'auto 0px', borderRadius: '0px 0px 15px 15px' };
     const headerStyle = { margin: 0 };
     const avatarStyle = { backgroundColor: '#1bbd7e' };
@@ -30,12 +30,18 @@ function LoginPage({ handleChange }: any) {
     const { authenticateUser } = authStore;
 
     const onSubmit = (values: UserModel, props: any) => {
-        console.log(values);
-        authenticateUser(values);
-        setTimeout(() => {
-            props.resetForm();
-            props.setSubmitting(false);
-        }, 2000);
+
+        authenticateUser(values)
+            .then((data) => {
+                console.log('registered user', data);
+                navigate("/overview");
+            })
+            .catch(error => {
+                console.error(error);
+            })
+            .finally(() => {
+                props.setSubmitting(false);
+            })
     };
 
     return (
@@ -57,7 +63,7 @@ function LoginPage({ handleChange }: any) {
                     validationSchema={validationSchema}
                 >
                     {(props) => (
-                        <Form>
+                        <Form autoComplete='off'>
                             <Grid container spacing={2}>
                                 <Grid item xs={12}>
                                     <Field
@@ -106,12 +112,12 @@ function LoginPage({ handleChange }: any) {
                         </Form>
                     )}
                 </Formik>
-                <Typography className="flex-center">
+                {/* <Typography className="flex-center">
                     <Link href="#">Forgot password?</Link>
-                </Typography>
+                </Typography> */}
                 <Typography className="flex-center">
-                    Do you have an account?{' '}
-                    <Link href="#" onClick={() => handleChange('event', 1)}>
+                    {`Don't have an account? `}
+                    <Link href="#" onClick={() => handleChangeTab('event', 1)}>
                         Sign Up
                     </Link>
                 </Typography>

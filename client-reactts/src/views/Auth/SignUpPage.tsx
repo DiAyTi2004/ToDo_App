@@ -1,15 +1,19 @@
 import React from 'react';
-import { Grid, Paper, Avatar, Typography, TextField, Button, Checkbox, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material'; // Import components from '@mui/material' instead of '@material-ui/core'
+import { Link, Grid, Paper, Avatar, Typography, TextField, Button, Checkbox, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material'; // Import components from '@mui/material' instead of '@material-ui/core'
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined'; // Import icons from '@mui/icons-material'
 import { ErrorMessage, Field, Form, Formik } from 'formik';
 import { UserModel } from 'src/models/UserModel';
 import * as Yup from 'yup';
+import { useStore } from 'src/stores';
 
-const Signup = () => {
-    const paperStyle = { padding: 20, margin: '0 auto', borderRadius: '0px 0px 15px 15px'};
+function Signup({ navigate, handleChangeTab }: any) {
+    const paperStyle = { padding: 20, margin: '0 auto', borderRadius: '0px 0px 15px 15px' };
     const headerStyle = { margin: 0 };
     const avatarStyle = { backgroundColor: '#1bbd7e' };
     const btnstyle = { margin: '8px 0' };
+
+    const { authStore } = useStore();
+    const { registerUser } = authStore;
 
     const initialValues = {
         username: '',
@@ -24,11 +28,16 @@ const Signup = () => {
     });
 
     const onSubmit = (values: UserModel, props: any) => {
-        console.log(values);
-        setTimeout(() => {
-            props.resetForm();
-            props.setSubmitting(false);
-        }, 2000);
+        registerUser(values)
+            .then(() => {
+                handleChangeTab('event', 0);
+            })
+            .catch(error => {
+                console.error(error);
+            })
+            .finally(() => {
+                props.setSubmitting(false);
+            })
     };
 
     return (
@@ -102,6 +111,12 @@ const Signup = () => {
                                 </Form>
                             )}
                         </Formik>
+                        <Typography className="flex-center">
+                            {`Already have an account? `}
+                            <Link href="#" onClick={() => handleChangeTab('event', 0)}>
+                                Sign In
+                            </Link>
+                        </Typography>
                     </Grid>
                 </Grid>
             </Paper >
