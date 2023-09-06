@@ -6,6 +6,7 @@ import ThemeProvider from './theme/ThemeProvider';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './common/CommonStyles.scss';
+import './App.css';
 
 function App() {
   const content = useRoutes(routes);

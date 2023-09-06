@@ -6,10 +6,9 @@ import { UserModel } from 'src/models/UserModel';
 import * as Yup from 'yup';
 
 const Signup = () => {
-    const paperStyle = { padding: 20, width: 300, margin: '0 auto' };
+    const paperStyle = { padding: 20, margin: '0 auto', borderRadius: '0px 0px 15px 15px'};
     const headerStyle = { margin: 0 };
     const avatarStyle = { backgroundColor: '#1bbd7e' };
-    const marginTop = { marginTop: 5 };
     const btnstyle = { margin: '8px 0' };
 
     const initialValues = {

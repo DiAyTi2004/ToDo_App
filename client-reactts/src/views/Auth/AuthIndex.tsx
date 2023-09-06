@@ -16,7 +16,9 @@ function AuthIndex() {
     setValue(newValue);
   };
 
-  const paperStyle = { width: 340, margin: "20px auto" };
+  const paperStyle = { width: 340, margin: "0px auto", backgroundImage: `url('https://marketplace.canva.com/EAD2962NKnQ/2/0/400w/canva-rainbow-gradient-pink-and-purple-virtual-background-LrNk7fAXxw8.jpg')` };
+  // const backgroundStyle = {background: 'https://marketplace.canva.com/EAD2962NKnQ/2/0/400w/canva-rainbow-gradient-pink-and-purple-virtual-background-LrNk7fAXxw8.jpg' };
+
 
   function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -39,28 +41,30 @@ function AuthIndex() {
   }
 
   return (
-    <Paper elevation={20} style={paperStyle}>
-      <Tabs
-        value={value}
-        indicatorColor="primary"
-        textColor="primary"
-        variant="fullWidth"
-        onChange={handleChange}
-        aria-label="disabled tabs example"
-      >
-        <Tab label="Sign In" />
+    <div style={{width: "100vw", height: "100vh", paddingTop: "30px", padding: "0px", background: `url('https://marketplace.canva.com/EAD2962NKnQ/2/0/400w/canva-rainbow-gradient-pink-and-purple-virtual-background-LrNk7fAXxw8.jpg')`, backgroundRepeat: "no-repeat", backgroundSize: "100% 100%"}}>
+      <Paper elevation={20} style={paperStyle}>
+        <Tabs
+          value={value}
+          indicatorColor="primary"
+          textColor="primary"
+          variant="fullWidth"
+          onChange={handleChange}
+          aria-label="disabled tabs example"
+        >
+          <Tab label="Sign In" style={{borderRadius: '15px 0px 0px 0px'}}/>
 
-        <Tab label="Sign Up" />
-      </Tabs>
+          <Tab label="Sign Up" />
+        </Tabs>
 
-      <TabPanel value={value} index={0}>
-        <LoginPage />
-      </TabPanel>
+        <TabPanel value={value} index={0}>
+          <LoginPage />
+        </TabPanel>
 
-      <TabPanel value={value} index={1}>
-        <Signup />
-      </TabPanel>
-    </Paper>
+        <TabPanel value={value} index={1}>
+          <Signup />
+        </TabPanel>
+      </Paper>
+    </div>
   );
 }
 
