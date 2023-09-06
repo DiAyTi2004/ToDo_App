@@ -20,7 +20,11 @@ export default class AuthStore {
             return data;
         }
         catch (error) {
-            toast.error("The username or password is incorrect");
+            if (error?.response?.status === 401)
+                toast.error("The username or password is incorrect");
+            else {
+                toast.error("Connection errors");
+            }
             throw new Error(error);
         }
     }
