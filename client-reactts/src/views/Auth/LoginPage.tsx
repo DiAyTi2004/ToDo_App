@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { UserModel } from 'src/models/UserModel';
 import { useStore } from 'src/stores';
 
-function LoginPage({ handleChange }: any) {
+function LoginPage({navigate, handleChange }: any) {
     const paperStyle = { padding: 20, margin: 'auto 0px', borderRadius: '0px 0px 15px 15px' };
     const headerStyle = { margin: 0};
     const avatarStyle = { backgroundColor: '#1bbd7e' };
@@ -28,8 +28,16 @@ function LoginPage({ handleChange }: any) {
     const { authenticateUser } = authStore;
 
     const onSubmit = (values: UserModel, props: any) => {
-        console.log(values);
-        authenticateUser(values);
+        authenticateUser(values)
+            .then(() => {
+                navigate("/overview");
+            })
+            .catch(error => {
+                console.error(error);
+            })
+            .finally(() => {
+                props.setSubmitting(false);
+            })
         setTimeout(() => {
             props.resetForm();
             props.setSubmitting(false);
@@ -55,7 +63,7 @@ function LoginPage({ handleChange }: any) {
                     validationSchema={validationSchema}
                 >
                     {(props) => (
-                        <Form>
+                        <Form autoComplete='off'>
                             <Grid container spacing={2}>
                                 <Grid item xs={12}>
                                     <Field
@@ -112,7 +120,7 @@ function LoginPage({ handleChange }: any) {
                     <Link href="#">Forgot password?</Link>
                 </Typography>
                 <Typography className="flex-center">
-                    Do you have an account?{' '}
+                    {`Do you have an account? `}
                     <Link href="#" onClick={() => handleChange('event', 1)}>
                         Sign Up
                     </Link>
