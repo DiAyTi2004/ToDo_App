@@ -13,7 +13,7 @@ import { useNavigate } from "react-router";
 function AuthIndex() {
   const [value, setValue] = useState(0);
 
-  const navigate = useNavigate();
+  const navigate = useNavigate(); 
 
   const handleChangeTab = (event: any, newValue: any) => {
     setValue(newValue);
