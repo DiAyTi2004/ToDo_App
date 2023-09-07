@@ -6,13 +6,11 @@ import * as Yup from 'yup';
 import { UserModel } from 'src/models/UserModel';
 import { useStore } from 'src/stores';
 
-function LoginPage({ navigate, handleChangeTab }: any) {
+function LoginPage({ handleChange }: any) {
     const paperStyle = { padding: 20, margin: 'auto 0px', borderRadius: '0px 0px 15px 15px' };
-    const headerStyle = { margin: 0 };
+    const headerStyle = { margin: 0};
     const avatarStyle = { backgroundColor: '#1bbd7e' };
     const btnstyle = { margin: '8px 0' };
-    // const backgroundStyle = { backgroundImage: `url('https://marketplace.canva.com/EAD2962NKnQ/2/0/400w/canva-rainbow-gradient-pink-and-purple-virtual-background-LrNk7fAXxw8.jpg')` };
-    // const backgroundStyle = {background: 'https://marketplace.canva.com/EAD2962NKnQ/2/0/400w/canva-rainbow-gradient-pink-and-purple-virtual-background-LrNk7fAXxw8.jpg' };
 
     const initialValues = {
         username: '',
@@ -23,31 +21,25 @@ function LoginPage({ navigate, handleChangeTab }: any) {
     const validationSchema = Yup.object().shape({
         // username: Yup.string().email('please enter a valid email').required('Required'),
         username: Yup.string().required("This field is required").nullable(),
-        password: Yup.string().required('Required'),
+        password: Yup.string().required('This field is required'),
     });
 
     const { authStore } = useStore();
     const { authenticateUser } = authStore;
 
     const onSubmit = (values: UserModel, props: any) => {
-
-        authenticateUser(values)
-            .then((data) => {
-                console.log('registered user', data);
-                navigate("/overview");
-            })
-            .catch(error => {
-                console.error(error);
-            })
-            .finally(() => {
-                props.setSubmitting(false);
-            })
+        console.log(values);
+        authenticateUser(values);
+        setTimeout(() => {
+            props.resetForm();
+            props.setSubmitting(false);
+        }, 2000);
     };
 
     return (
         <Grid>
             <Paper style={paperStyle}>
-                <Grid className='flex-center'>
+                <Grid className='flex-center' style={{paddingBottom: '20px'}}>
                     <Avatar style={avatarStyle} className='mr-2'>
                         <LockOutlinedIcon />
                     </Avatar>
@@ -63,7 +55,7 @@ function LoginPage({ navigate, handleChangeTab }: any) {
                     validationSchema={validationSchema}
                 >
                     {(props) => (
-                        <Form autoComplete='off'>
+                        <Form>
                             <Grid container spacing={2}>
                                 <Grid item xs={12}>
                                     <Field
@@ -73,8 +65,10 @@ function LoginPage({ navigate, handleChangeTab }: any) {
                                         placeholder="Enter username"
                                         fullWidth
                                         required
-                                        helperText={<ErrorMessage name="username" />}
                                     />
+                                    <div style={{ color: 'red' }}>
+                                        <ErrorMessage name="username" />
+                                    </div>
                                 </Grid>
                                 <Grid item xs={12}>
                                     <Field
@@ -85,8 +79,10 @@ function LoginPage({ navigate, handleChangeTab }: any) {
                                         type="password"
                                         fullWidth
                                         required
-                                        helperText={<ErrorMessage name="password" />}
                                     />
+                                    <div style={{ color: 'red' }}>
+                                        <ErrorMessage name="password" />
+                                    </div>
                                 </Grid>
                                 <Grid item xs={12}>
                                     <Field
@@ -112,12 +108,12 @@ function LoginPage({ navigate, handleChangeTab }: any) {
                         </Form>
                     )}
                 </Formik>
-                {/* <Typography className="flex-center">
-                    <Link href="#">Forgot password?</Link>
-                </Typography> */}
                 <Typography className="flex-center">
-                    {`Don't have an account? `}
-                    <Link href="#" onClick={() => handleChangeTab('event', 1)}>
+                    <Link href="#">Forgot password?</Link>
+                </Typography>
+                <Typography className="flex-center">
+                    Do you have an account?{' '}
+                    <Link href="#" onClick={() => handleChange('event', 1)}>
                         Sign Up
                     </Link>
                 </Typography>

@@ -2,8 +2,10 @@ import React from 'react';
 import { Link, Grid, Paper, Avatar, Typography, TextField, Button, Checkbox, Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material'; // Import components from '@mui/material' instead of '@material-ui/core'
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined'; // Import icons from '@mui/icons-material'
 import { ErrorMessage, Field, Form, Formik } from 'formik';
-import { UserModel } from 'src/models/UserModel';
 import * as Yup from 'yup';
+import { FormHelperText } from '@mui/material';
+
+import { UserModel } from 'src/models/UserModel';
 import { useStore } from 'src/stores';
 
 function Signup({ navigate, handleChangeTab }: any) {
@@ -18,13 +20,15 @@ function Signup({ navigate, handleChangeTab }: any) {
     const initialValues = {
         username: '',
         password: '',
+        passwordConfirm: '',
         remember: false,
     };
 
     const validationSchema = Yup.object().shape({
         // username: Yup.string().email('please enter a valid email').required('Required'),
         username: Yup.string().required("This field is required").nullable(),
-        password: Yup.string().required('Required'),
+        password: Yup.string().required('This field is Required').min(6, 'Enter at least 6 characters'),
+        passwordConfirm: Yup.string().required('This field is Required').oneOf([Yup.ref('password'), null], 'Passwords must match'),
     });
 
     const onSubmit = (values: UserModel, props: any) => {
@@ -52,9 +56,9 @@ function Signup({ navigate, handleChangeTab }: any) {
                             <Typography style={headerStyle}><h2>Sign Up</h2> </Typography>
                         </div>
                     </Grid>
-                    <Grid item xs={12}>
+                    {/* <Grid item xs={12}>
                         <Typography variant='caption' gutterBottom>Please fill this form to create an account !</Typography>
-                    </Grid>
+                    </Grid> */}
                     <Grid item xs={12}>
                         <Formik
                             initialValues={initialValues}
@@ -72,8 +76,10 @@ function Signup({ navigate, handleChangeTab }: any) {
                                                 placeholder="Enter username"
                                                 fullWidth
                                                 required
-                                                helperText={<ErrorMessage name="username" />}
                                             />
+                                            <div style={{ color: 'red' }}>
+                                                <ErrorMessage name="username" />
+                                            </div>
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Field
@@ -84,8 +90,25 @@ function Signup({ navigate, handleChangeTab }: any) {
                                                 type="password"
                                                 fullWidth
                                                 required
-                                                helperText={<ErrorMessage name="password" />}
                                             />
+                                            <div style={{ color: 'red' }}>
+                                                <ErrorMessage name="password" />
+                                            </div>
+                                        </Grid>
+                                        <Grid item xs={12}>
+                                            <Field
+                                                as={TextField}
+                                                label="Confirm Password"
+                                                name="passwordConfirm"
+                                                placeholder="confirm password"
+                                                type="password"
+                                                fullWidth
+                                                required
+                                                // helperText={<ErrorMessage name="passwordConfirm" />}
+                                            />
+                                            <div style={{ color: 'red' }}>
+                                                <ErrorMessage name="passwordConfirm" />
+                                            </div>
                                         </Grid>
                                         <Grid item xs={12}>
                                             <Field
