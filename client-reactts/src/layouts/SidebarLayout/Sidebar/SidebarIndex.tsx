@@ -34,11 +34,11 @@ const SidebarWrapper = styled(Box)(
 
 function Sidebar() {
   const { sidebarToggle, toggleSidebar } = useContext(SidebarContext);
+
   const closeSidebar = () => {
     toggleSidebar();
-    console.log(sidebarToggle);
-    
   }
+  
   const theme = useTheme();
 
   return (

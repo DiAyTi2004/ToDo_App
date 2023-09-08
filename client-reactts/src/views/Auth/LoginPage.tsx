@@ -6,9 +6,9 @@ import * as Yup from 'yup';
 import { UserModel } from 'src/models/UserModel';
 import { useStore } from 'src/stores';
 
-function LoginPage({ handleChange }: any) {
+function LoginPage({ handleChange, navigate }: any) {
     const paperStyle = { padding: 20, margin: 'auto 0px', borderRadius: '0px 0px 15px 15px' };
-    const headerStyle = { margin: 0};
+    const headerStyle = { margin: 0 };
     const avatarStyle = { backgroundColor: '#1bbd7e' };
     const btnstyle = { margin: '8px 0' };
 
@@ -28,18 +28,23 @@ function LoginPage({ handleChange }: any) {
     const { authenticateUser } = authStore;
 
     const onSubmit = (values: UserModel, props: any) => {
-        console.log(values);
-        authenticateUser(values);
-        setTimeout(() => {
-            props.resetForm();
-            props.setSubmitting(false);
-        }, 2000);
+        authenticateUser(values)
+            .then(function () {
+                navigate("/overview");
+            })
+            .catch(function (error) {
+                console.error(error);
+            })
+            .finally(function () {
+                props.setSubmitting(false);
+            });
+
     };
 
     return (
         <Grid>
             <Paper style={paperStyle}>
-                <Grid className='flex-center' style={{paddingBottom: '20px'}}>
+                <Grid className='flex-center' style={{ paddingBottom: '20px' }}>
                     <Avatar style={avatarStyle} className='mr-2'>
                         <LockOutlinedIcon />
                     </Avatar>
