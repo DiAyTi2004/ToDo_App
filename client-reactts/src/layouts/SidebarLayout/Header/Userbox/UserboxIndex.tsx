@@ -19,7 +19,7 @@ import ExpandMoreTwoToneIcon from '@mui/icons-material/ExpandMoreTwoTone';
 import AccountBoxTwoToneIcon from '@mui/icons-material/AccountBoxTwoTone';
 import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
 import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
-import AlertDialog from "src/components/Dialog/alertDialog";
+import AlertDialog from 'src/components/Dialog/AlertDialog';
 import { useStore } from 'src/stores';
 import { useNavigate } from "react-router";
 

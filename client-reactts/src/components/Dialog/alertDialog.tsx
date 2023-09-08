@@ -32,9 +32,9 @@ function AlertDialog({ header, body, openAlertDialog, handleClose, handleClickAg
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Hủy</Button>
+                    <Button onClick={handleClose}>Cancel</Button>
                     <Button onClick={handleClickAgree} autoFocus>
-                        Đồng ý
+                        Agree
                     </Button>
                 </DialogActions>
             </Dialog>
