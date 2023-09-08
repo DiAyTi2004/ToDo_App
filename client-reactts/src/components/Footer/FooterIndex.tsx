@@ -29,11 +29,11 @@ function Footer() {
         >
           Crafted by{' '}
           <Link
-            href="https://bloomui.com"
+            href="https://google.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            UI.com
+            DiAyTi and Phe Van Vuong
           </Link>
         </Typography>
       </Box>

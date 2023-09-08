@@ -17,6 +17,7 @@ import ChromeReaderModeTwoToneIcon from '@mui/icons-material/ChromeReaderModeTwo
 import WorkspacePremiumTwoToneIcon from '@mui/icons-material/WorkspacePremiumTwoTone';
 import CameraFrontTwoToneIcon from '@mui/icons-material/CameraFrontTwoTone';
 import PublicIcon from '@mui/icons-material/Public';
+import Diversity2Icon from '@mui/icons-material/Diversity2';
 
 const navigations = [
     {
@@ -48,6 +49,11 @@ const navigations = [
                 name: 'Country',
                 path: 'country',
                 Icon: PublicIcon,
+            },
+            {
+                name: 'Ethnics',
+                path: 'ethnics',
+                Icon: Diversity2Icon,
             },
         ],
     },

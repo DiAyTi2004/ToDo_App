@@ -2,6 +2,7 @@ import SidebarLayout from 'src/layouts/SidebarLayout/SidebarLayoutIndex';
 import CountryRouter from "./Country/CountryRouter";
 import TransactionsRouter from 'src/content/applications/Transactions/TransactionRouter';
 import UserRouter from 'src/content/applications/Users/UsersRouter';
+import EthnicsRouter from './Ethnics/EthnicsRouter';
 
 const ManagementRouter = [
     {
@@ -10,6 +11,7 @@ const ManagementRouter = [
         children: [
             ...TransactionsRouter,
             ...CountryRouter,
+            ...EthnicsRouter,
             ...UserRouter
         ]
     },

@@ -21,7 +21,7 @@ import SidebarMenu from './SidebarMenu/MenuList';
 import Logo from 'src/components/LogoSign/LogoSignIndex';
 
 const SidebarWrapper = styled(Box)(
-  ({ theme }) => `
+  ({ theme }:any) => `
         width: ${theme.sidebar.width};
         min-width: ${theme.sidebar.width};
         color: ${theme.colors.alpha.trueWhite[70]};
@@ -109,7 +109,7 @@ function Sidebar() {
             background: theme.colors.alpha.trueWhite[10]
           }}
         />
-        <Box p={2}>
+        {/* <Box p={2}>
           <Button
             href="https://bloomui.com"
             target="_blank"
@@ -121,7 +121,7 @@ function Sidebar() {
           >
             Upgrade to PRO
           </Button>
-        </Box>
+        </Box> */}
       </SidebarWrapper>
       <Drawer
         sx={{

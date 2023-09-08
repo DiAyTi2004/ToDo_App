@@ -14,7 +14,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import Footer from 'src/components/Footer/FooterIndex';
 
-function Tooltips() {
+function Tooltips({...props}:any) {
   return (
     <>
       <Helmet>
