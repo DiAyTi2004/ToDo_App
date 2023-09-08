@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { UserModel } from 'src/models/UserModel';
 import { useStore } from 'src/stores';
 
-function LoginPage({ handleChange, navigate }: any) {
+function LoginPage({ handleChangeTab, navigate }: any) {
     const paperStyle = { padding: 20, margin: 'auto 0px', borderRadius: '0px 0px 15px 15px' };
     const headerStyle = { margin: 0 };
     const avatarStyle = { backgroundColor: '#1bbd7e' };
@@ -118,7 +118,7 @@ function LoginPage({ handleChange, navigate }: any) {
                 </Typography>
                 <Typography className="flex-center">
                     {`Do you have an account? `}
-                    <Link href="#" onClick={() => handleChange('event', 1)}>
+                    <Link href="#" onClick={() => handleChangeTab('event', 1)}>
                         Sign Up
                     </Link>
                 </Typography>
