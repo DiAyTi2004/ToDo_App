@@ -60,7 +60,7 @@ function LoginPage({ handleChange, navigate }: any) {
                     validationSchema={validationSchema}
                 >
                     {(props) => (
-                        <Form>
+                        <Form autoComplete='off'>
                             <Grid container spacing={2}>
                                 <Grid item xs={12}>
                                     <Field
@@ -117,7 +117,7 @@ function LoginPage({ handleChange, navigate }: any) {
                     <Link href="#">Forgot password?</Link>
                 </Typography>
                 <Typography className="flex-center">
-                    Do you have an account?{' '}
+                    {`Do you have an account? `}
                     <Link href="#" onClick={() => handleChange('event', 1)}>
                         Sign Up
                     </Link>

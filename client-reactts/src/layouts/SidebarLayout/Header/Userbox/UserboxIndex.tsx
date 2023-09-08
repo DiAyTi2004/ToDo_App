@@ -1,7 +1,5 @@
 import { useRef, useState } from 'react';
-
 import { NavLink } from 'react-router-dom';
-
 import {
   Avatar,
   Box,
@@ -15,13 +13,15 @@ import {
   Popover,
   Typography
 } from '@mui/material';
-
 import InboxTwoToneIcon from '@mui/icons-material/InboxTwoTone';
 import { styled } from '@mui/material/styles';
 import ExpandMoreTwoToneIcon from '@mui/icons-material/ExpandMoreTwoTone';
 import AccountBoxTwoToneIcon from '@mui/icons-material/AccountBoxTwoTone';
 import LockOpenTwoToneIcon from '@mui/icons-material/LockOpenTwoTone';
 import AccountTreeTwoToneIcon from '@mui/icons-material/AccountTreeTwoTone';
+import AlertDialog from "src/components/Dialog/alertDialog";
+import { useStore } from 'src/stores';
+import { useNavigate } from "react-router";
 
 const UserBoxButton = styled(Button)(
   ({ theme }) => `
@@ -67,6 +67,11 @@ function HeaderUserbox() {
 
   const ref = useRef<any>(null);
   const [isOpen, setOpen] = useState<boolean>(false);
+  const [openAlertDialog, setOpenAlertDialog] = useState(false);
+  const { authStore } = useStore();
+  const { logout } = authStore;
+  const navigate = useNavigate(); 
+
 
   const handleOpen = (): void => {
     setOpen(true);
@@ -75,6 +80,25 @@ function HeaderUserbox() {
   const handleClose = (): void => {
     setOpen(false);
   };
+
+  const handleOpenAlertDialog = (): void => {
+    setOpenAlertDialog(true);
+  }
+
+  const handleCloseAlertDialog = (): void => {
+    setOpenAlertDialog(false);
+  }
+
+  const handleSignOut = () => {
+    logout();
+    navigate('/auth');
+    // : toast.error('sign out failed');
+    // .then(() => {
+    //   navigate('/auth');
+    // }).catch((error) => {
+    //   console.log(error);
+    // })
+  }
 
   return (
     <>
@@ -135,12 +159,19 @@ function HeaderUserbox() {
         </List>
         <Divider />
         <Box sx={{ m: 1 }}>
-          <Button color="primary" fullWidth>
+          <Button color="primary" fullWidth onClick={handleOpenAlertDialog}>
             <LockOpenTwoToneIcon sx={{ mr: 1 }} />
             Sign out
           </Button>
         </Box>
       </Popover>
+      <AlertDialog
+        header='Sign out'
+        body='Are you sure you want to sign out?'
+        openAlertDialog={openAlertDialog}
+        handleClose={handleCloseAlertDialog}
+        handleClickAgree={handleSignOut}
+      />
     </>
   );
 }
